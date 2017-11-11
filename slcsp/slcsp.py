@@ -10,13 +10,10 @@ def main():
 
     # ==== Plans ===============================================================
 
-    # Read "plans.csv" for the data on plans, but do not process the data to
-    # ensure the file I/O operation is completed ASAP. I can speed up data
-    # processing, but I am not aware of techniques to speed up disk I/O.
+    # Read "plans.csv" for the data on plans.
     plans = []
-    with open(PLANS) as lines:
-        for line in lines:
-            plans.append(line)
+    with open(PLANS) as fin:
+        plans = fin.readlines()
 
     # Process the data on plans by parsing the data using ',' as the delimiter
     # and filtering for plans whose metal_level is 'Silver'.
